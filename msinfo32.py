@@ -46,7 +46,8 @@ if __name__ == "__main__":
         recipient = "email@email.com"
         subject = "System Information"
         body = "MSinfo32 from a computer."
-        sender = "your_email"        
+        sender = "your email"        
         password = "XXXX XXXX XXXX XXXX" #App Password (from email)
         sendEmail(recipient, subject, body, outFile, sender, password)
+
 
