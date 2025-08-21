@@ -1,0 +1,14 @@
+function RandomPassword {
+    $length = 15
+    $charset = @()
+    $charset += [char[]]"abcdefghijklmnopqrstuvwxyz"
+    $charset += [char[]]"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    $charset += [char[]]"0123456789"
+    $charset += [char[]]"!@#$%^&*()-_=+[]{};:<>,.?/\|`~"
+
+    $password = -join (1..$length | ForEach-Object { $charset | Get-Random })
+    return $password
+}
+
+# Call the function
+RandomPassword
