@@ -1,20 +1,37 @@
-# Practice Scripts (Python & PowerShell)
+# Practice Scripts & Docker Projects
 
-This repository contains a collection of practice scripts I’ve written while learning **Python** and **PowerShell**.  
-The scripts are small experiments to help me explore different concepts, such as:
+This repository is a collection of practice work I’m doing while learning **Python**, **PowerShell**, and **Docker**.  
+It includes small experiments, automation tasks, and containerized projects.
 
-- 📊 **System Information (Python)** – exporting Windows system info and emailing it.  
-- 🌐 **Networking Tasks (Python)** – logging timestamps, fetching public IP, running `ipconfig`, and ping tests.  
-- 🔑 **Random Password Generator (PowerShell)** – creating strong random passwords.
+---
 
-  I will be adding more scripts overtime for different things and make improvments overtime to each of my scripts. 
+## 📂 Contents
 
-## 🛠 Usage
-- Run Python scripts with:
-  ```bash
-  python script_name.py
+### 🐍 Python Scripts
+- **System Info Exporter** – collects Windows system information and emails it.
+- **Networking Tools** – logs timestamps, fetches public IP, runs `ipconfig`, and pings external hosts.
 
-- Run Powershell scripts with:
-  ```bash
-  ./script_name.ps1
+### 💻 PowerShell Scripts
+- **Random Password Generator** – creates strong random passwords for practice and testing.
+
+### 🐳 Docker Projects
+- **Service Containers** – experimenting with services like Nginx, Vaultwarden, Gitea, Netdata, OpenWeb, Watchtower, RSS, and Dozzle.  
+- **docker-compose.yml** – used to define and manage multi-container setups.  
+These projects help me learn **containerization, orchestration, and self-hosting tools**.
+
+---
+
+## 🚀 Usage
+
+### Python
+```bash
+python script_name.py
+
+### PowerShell
+```bash
+./script.ps1
+
+### Docker
+```bash
+docker-compose up -d
 
