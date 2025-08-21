@@ -1,6 +1,5 @@
 function RandomPassword {
     $length = 15
-    $charset = @()
     $charset += [char[]]"abcdefghijklmnopqrstuvwxyz"
     $charset += [char[]]"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     $charset += [char[]]"0123456789"
@@ -11,4 +10,5 @@ function RandomPassword {
 }
 
 # Call the function
+
 RandomPassword
