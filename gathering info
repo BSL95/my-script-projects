@@ -1,0 +1,53 @@
+import subprocess
+from datetime import datetime
+import urllib.request
+
+# Getting a Date/Time Stamp             
+def log():
+    stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Date/Time Stamp: {stamp}")
+    
+# Getting the Public IPv4 address
+def pubIP():
+    try:
+        pub = urllib.request.urlopen("https://api.ipify.org").read().decode("utf8")
+        print(f"Public IPv4 Address is: {pub}")
+    except Exception as e:
+        print(f"Error Getting Public IPv4: {e}")
+        
+# Running IPCONFIG        
+def config():
+    try:
+        result = subprocess.run(
+            ["ipconfig"],
+            capture_output=True, 
+            text=True, 
+            shell=True)
+        print(result.stdout)
+    except Exception as e:
+        print(f"Error: {e}")
+        
+# Running a ping request
+def ping():
+    try:
+        result = subprocess.run(
+            ["ping", "-n", "4", "8.8.8.8"],
+            capture_output=True, 
+            text=True, 
+            shell=True)
+        if result.returncode == 0:
+            print(result.stdout)
+        else:
+            print("Ping Failed.")    
+    except Exception as e:
+        print(f"Error During Ping: {e}")
+        
+# Run all
+def main():
+    log()
+    pubIP()
+    config()
+    ping()
+    
+if __name__ == "__main__":
+    main()
