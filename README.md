@@ -31,9 +31,12 @@ python script_name.py
 ```bash
 ./script_name.ps1
 ```
-### Docker
+### Docker to run docker-compose
 ```bash
 docker-compose up -d
 ```
-
+### Docker to run the .yaml files
+```bash
+docker-compose -f name.yaml up -d
+```
 
