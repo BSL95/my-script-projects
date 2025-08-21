@@ -14,7 +14,7 @@ The scripts are small experiments to help me explore different concepts, such as
   ```bash
   python script_name.py
 
-- Run Powershell
+- Run Powershell scripts with:
   ```bash
   ./script_name.ps1
 
