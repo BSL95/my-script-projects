@@ -26,12 +26,14 @@ These projects help me learn **containerization, orchestration, and self-hosting
 ### Python
 ```bash
 python script_name.py
-
-### PowerShell
+```
+### Powershell
 ```bash
-./script.ps1
-
+./script_name.ps1
+```
 ### Docker
 ```bash
 docker-compose up -d
+```
+
 
