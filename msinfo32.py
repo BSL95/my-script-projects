@@ -43,9 +43,10 @@ def sendEmail(recipient, subject, body, attachment_path, sender, password):
 if __name__ == "__main__":
     outFile = sysInfo()
     if outFile:
-        recipient = "brettsl95@gmail.com"
+        recipient = "email@email.com"
         subject = "System Information"
         body = "MSinfo32 from a computer."
-        sender = "brettsl95@gmail.com"        
-        password = "yyhg ymqn axno gies"
+        sender = "your_email"        
+        password = "XXXX XXXX XXXX XXXX" #App Password (from email)
         sendEmail(recipient, subject, body, outFile, sender, password)
+
