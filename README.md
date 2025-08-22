@@ -5,7 +5,7 @@ It includes small experiments, automation tasks, and containerized projects.
 
 ---
 
-## 📂 Contents
+# 📂 Contents
 
 ### 🐍 Python Scripts
 - **System Info Exporter** – collects Windows system information and emails it.
