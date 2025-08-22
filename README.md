@@ -40,3 +40,7 @@ docker-compose up -d
 docker-compose -f name.yaml up -d
 ```
 
+---
+
+I will continue to add more codes has more ideas come. 
+
