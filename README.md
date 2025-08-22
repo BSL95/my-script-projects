@@ -25,7 +25,7 @@ These projects help me learn **containerization, orchestration, and self-hosting
 
 ### Python
 ```bash
-# python script_name.py
+python script_name.py
 ```
 ### Powershell
 ```bash
