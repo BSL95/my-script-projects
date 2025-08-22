@@ -1,4 +1,4 @@
-# **Practice Scripts & Docker Projects**
+# ***Practice Scripts & Docker Projects***
 
 This repository is a collection of practice work I’m doing while learning **Python**, **PowerShell**, and **Docker**.  
 It includes small experiments, automation tasks, and containerized projects.
