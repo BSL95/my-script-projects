@@ -10,5 +10,4 @@ function RandomPassword {
 }
 
 # Call the function
-
 RandomPassword
