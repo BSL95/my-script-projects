@@ -49,5 +49,3 @@ if __name__ == "__main__":
         sender = "your email"        
         password = "XXXX XXXX XXXX XXXX" #App Password (from email)
         sendEmail(recipient, subject, body, outFile, sender, password)
-
-
