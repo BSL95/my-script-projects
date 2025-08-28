@@ -43,7 +43,7 @@ echo "Summer2024!"   | openssl passwd -6 -stdin >> hashes.txt
 echo "N6!aWq$7Bz%1Yt" | openssl passwd -6 -stdin >> hashes.txt
 ```
 Each line in `hashes.txt` will start with `$6$`, which indicates SHA-512 crypt.
-# 🔑 Cracking with John
+### 🔑 Cracking with John
 Run John against the hashes using the RockYou wordlist.
 
 **Ubuntu / Debian / WSL**
