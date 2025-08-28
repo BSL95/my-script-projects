@@ -73,4 +73,4 @@ john --wordlist=/path/to/rockyou.txt hashes.txt
     * Or download manually to `/usr/share/wordlists/rockyou.txt`.
 - Nothing cracks
   * That’s expected for strong, random passwords.
-  * Weak/common ones (password, Password123) should fall quickly with RockYou.
+  * Weak/common ones (`password`, `Password123`) should fall quickly with RockYou.
