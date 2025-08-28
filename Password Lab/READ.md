@@ -1,16 +1,14 @@
 # 🔨 Password Cracking with John the Ripper
 
-This lab demonstrates the difference between weak and strong passwords by using John the Ripper with common wordlists. It shows how weak choices can be cracked quickly, while strong random ones resist attack.
+This lab demonstrates the difference between **weak** and **strong** passwords by using John the Ripper with common wordlists. It shows how weak choices can be cracked quickly, while strong random ones resist attack.
 
 ---
-📦 Installation
+### 📦 Installation
 Ubuntu / Debian / WSL
 ```bash
 sudo apt update
 sudo apt install john seclists -y
 ```
-
-
   John will be installed system-wide.
 
   RockYou wordlist is available at:
@@ -18,7 +16,6 @@ sudo apt install john seclists -y
 ```bash
 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt
 ```
-
 Kali Linux
 
   John is already preinstalled.
@@ -28,13 +25,11 @@ Kali Linux
 ```bash  
 /usr/share/wordlists/rockyou.txt.gz
 ```
-
 Decompress it with:
 
 ```bash
 sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
 ```
-
 💡 If you can’t find RockYou, you can download it manually:
 
 ```bash
@@ -43,7 +38,7 @@ cd /usr/share/wordlists
 sudo wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
 ```
 ---
-📝 Create Test Hashes
+### 📝 Create Test Hashes
 
 We’ll create a file (hashes.txt) with three weak passwords and one strong password hashed with **SHA-512 crypt**:
 
