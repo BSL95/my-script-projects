@@ -14,5 +14,4 @@ def random_password(length=15):
     return "".join(req[:length])
 
 if __name__ == "__main__":
-    print(random_password())
-    print(random_password(20))
+    print(random_password(15))
