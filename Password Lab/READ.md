@@ -45,6 +45,7 @@ echo "N6!aWq$7Bz%1Yt" | openssl passwd -6 -stdin >> hashes.txt
 Each line in `hashes.txt` will start with `$6$`, which indicates SHA-512 crypt.
 # 🔑 Cracking with John
 Run John against the hashes using the RockYou wordlist.
+
 **Ubuntu / Debian / WSL**
 ```bash
 john --wordlist=/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt hashes.txt
