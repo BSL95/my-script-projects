@@ -1,6 +1,6 @@
 # 🔨 Password Cracking with John the Ripper
 
-This lab demonstrates the difference between **weak** and **strong** passwords by using John the Ripper with common wordlists. It shows how weak choices can be cracked quickly, while strong random ones resist attack.
+This lab demonstrates the difference between *weak* and *strong* passwords by using John the Ripper with common wordlists. It shows how weak choices can be cracked quickly, while strong random ones resist attack.
 
 ---
 
