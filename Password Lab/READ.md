@@ -71,6 +71,6 @@ john --wordlist=/path/to/rockyou.txt hashes.txt
     * Ubuntu/WSL → RockYou is at `/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt`.
     * Kali → decompress it from `/usr/share/wordlists/rockyou.txt.gz`.
     * Or download manually to `/usr/share/wordlists/rockyou.txt`.
-- # Nothing cracks
+- Nothing cracks
   * That’s expected for strong, random passwords.
   * Weak/common ones (password, Password123) should fall quickly with RockYou.
