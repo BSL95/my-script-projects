@@ -1,109 +1,109 @@
-🔨 Password Cracking with John the Ripper
+# 🔨 Password Cracking with John the Ripper
 
-This section shows how to demonstrate the difference between weak and strong passwords using John the Ripper and a common wordlist.
+This lab demonstrates the difference between weak and strong passwords by using John the Ripper with common wordlists. It shows how weak choices can be cracked quickly, while strong random ones resist attack.
 
-1) Install John + a wordlist
+---
+📦 Installation
 Ubuntu / Debian / WSL
+```bash
 sudo apt update
 sudo apt install john seclists -y
+```
 
 
-Wordlist path (RockYou):
+  John will be installed system-wide.
 
+  RockYou wordlist is available at:
+  
+```bash
 /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt
+```
 
 Kali Linux
 
-John is preinstalled. RockYou is at:
+  John is already preinstalled.
 
+  RockYou wordlist is located at:
+  
+```bash  
 /usr/share/wordlists/rockyou.txt.gz
+```
 
+Decompress it with:
 
-Decompress it:
-
+```bash
 sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
+```
 
+💡 If you can’t find RockYou, you can download it manually:
 
-If you can’t find RockYou, you can manually download it:
-
+```bash
 sudo mkdir -p /usr/share/wordlists
 cd /usr/share/wordlists
 sudo wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+```
+---
+📝 Create Test Hashes
 
-2) Create a small test set of hashes
+We’ll create a file (hashes.txt) with three weak passwords and one strong password hashed with **SHA-512 crypt**:
 
-We’ll hash three weak passwords and one strong password using SHA-512 crypt (prefix $6$). This makes a realistic “local password” cracking demo.
-
-# from your lab folder (e.g., lab-modules/password-security)
-
+```bash
 # Weak examples
 echo "password"      | openssl passwd -6 -stdin >  hashes.txt
 echo "Password123"   | openssl passwd -6 -stdin >> hashes.txt
 echo "Summer2024!"   | openssl passwd -6 -stdin >> hashes.txt
 
-# One strong random example (feel free to replace with one from your generator)
+# Strong random example
 echo "N6!aWq$7Bz%1Yt" | openssl passwd -6 -stdin >> hashes.txt
+```
 
+Each line in hashes.txt will start with $6$, which indicates SHA-512 crypt.
 
-Quick sanity check:
+🔑 Cracking with John
 
-head hashes.txt
+Run John against the hashes using the RockYou wordlist.
 
+Ubuntu / Debian / WSL
 
-You should see lines that start with $6$ (that means SHA-512 crypt).
-
-3) Crack with John (wordlist attack)
-Ubuntu / Debian / WSL (seclists path)
+```bash
 john --wordlist=/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt hashes.txt
+```
 
-Kali (wordlists path)
+Kali Linux
+
+```bash
 john --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt
+```
 
+Check which passwords cracked:
 
-Tip: If you ever get a “format” error, let John auto-detect (as above).
-If you do want to specify the format explicitly, use:
-
-john --format=sha512crypt --wordlist=/path/to/rockyou.txt hashes.txt
-
-4) Show cracked vs. uncracked
+```bash
 john --show hashes.txt
+```
 
+---
+⚙️ Troubleshooting
 
-What you’ll see
+Error: **“Unknown ciphertext format name requested”**
 
-Weak ones (e.g., password, Password123, Summer2024!) should crack quickly.
+Your hash file may not be SHA-512. Verify it starts with $6$.
 
-A long, random password from your generator likely won’t crack with a basic wordlist.
+Try running John without --format so it auto-detects:
 
-5) (Optional) Add rules to improve cracking
+```bash
+john --wordlist=/path/to/rockyou.txt hashes.txt
+```
 
-John’s built-in rules mutate words (add digits, change case, append symbols, etc.):
+Error: **“No such file or directory”** for rockyou.txt
 
-john --wordlist=/path/to/rockyou.txt --rules hashes.txt
+Ubuntu/WSL → RockYou is at /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.
 
-Troubleshooting
+Kali → decompress it from /usr/share/wordlists/rockyou.txt.gz.
 
-“Unknown ciphertext format name requested”
+Or download manually to /usr/share/wordlists/rockyou.txt.
 
-Ensure your hashes start with $6$ (SHA-512 crypt).
+Nothing cracks
 
-Try without --format (let John detect).
+That’s expected for strong, random passwords.
 
-Check available formats:
-
-john --list=formats | grep 512
-
-
-“No such file or directory” for rockyou
-
-On Ubuntu/WSL, install seclists (path shown above).
-
-On Kali, decompress /usr/share/wordlists/rockyou.txt.gz.
-
-Or manually download to /usr/share/wordlists/rockyou.txt and point John there.
-
-Very slow or nothing cracks
-
-That’s actually the point for strong, random, long passwords.
-
-Try shorter/guessable passwords to illustrate the difference, or enable --rules.
+Weak/common ones (password, Password123) should fall quickly with RockYou.
