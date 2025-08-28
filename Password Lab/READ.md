@@ -3,6 +3,7 @@
 This lab demonstrates the difference between **weak** and **strong** passwords by using John the Ripper with common wordlists. It shows how weak choices can be cracked quickly, while strong random ones resist attack.
 
 ---
+
 ### 📦 Installation
 **Ubuntu / Debian / WSL** 
 ```bash
@@ -31,6 +32,7 @@ cd /usr/share/wordlists
 sudo wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
 ```
 ---
+
 ### 📝 Create Test Hashes
 We’ll create a file (`hashes.txt`) with three weak passwords and one strong password hashed with **SHA-512 crypt**:
 ```bash
@@ -43,6 +45,8 @@ echo "Summer2024!"   | openssl passwd -6 -stdin >> hashes.txt
 echo "N6!aWq$7Bz%1Yt" | openssl passwd -6 -stdin >> hashes.txt
 ```
 Each line in `hashes.txt` will start with `$6$`, which indicates SHA-512 crypt.
+---
+
 ### 🔑 Cracking with John
 Run John against the hashes using the RockYou wordlist.
 
@@ -60,6 +64,7 @@ john --show hashes.txt
 ```
 
 ---
+
 ### ⚙️ Troubleshooting
 - Error: **“Unknown ciphertext format name requested”**
     * Your hash file may not be SHA-512. Verify it starts with `$6$`.
